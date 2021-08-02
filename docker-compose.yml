@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   proxy:
-    image: traefik:v2.4.2
+    image: nginx
     command:
       # - "--log.level=DEBUG"
       - "--api=true"
@@ -23,11 +23,11 @@ services:
       # - "traefik.http.middlewares.my-rewrite.plugin.plugin-rewrite.lastModified=true"
       # - "traefik.http.middlewares.my-rewrite.plugin.plugin-rewrite.rewrites[0].regex=ID"
       # - "traefik.http.middlewares.my-rewrite.plugin.plugin-rewrite.rewrites[0].replacement=MY-ID"
-    volumes:
-      - type: bind
-        source: /var/run/docker.sock
-        target: /var/run/docker.sock
-        read_only: true
+    #volumes:
+      #- type: bind
+        #source: /var/run/docker.sock
+        #target: /var/run/docker.sock
+        #read_only: true
     ports:
       - target: 80
         published: 80
